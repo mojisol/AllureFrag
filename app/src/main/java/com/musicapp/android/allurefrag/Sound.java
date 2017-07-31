@@ -1,5 +1,7 @@
 package com.musicapp.android.allurefrag;
 
+import java.util.ArrayList;
+
 /**
  * Created by MOJISOLA on 26/06/2017.
  */
@@ -13,7 +15,7 @@ public class Sound {
     private String mSongTitle;
 
     /** Artist of the song*/
-    private String mSongArtist;
+    public String mSongArtist;
 
     /** Play the music*/
     private int  mAudioResourceId;
@@ -68,6 +70,19 @@ public class Sound {
       * Returns whether or not there is an image for this sound
      */
       public boolean hasImage() {
-            return mImageResourceId != NO_IMAGE_PROVIDED;
-    }
+            return mImageResourceId != NO_IMAGE_PROVIDED;}
+
+      private static int lastSoundId = 0;
+      public static ArrayList<Sound> createSoundList(int numSound){
+              ArrayList<Sound> sounds = new ArrayList<Sound>();
+              for (int i = 1; i <= numSound; i++) {
+                  // sounds.add("one");
+                  //This is for a single output for more than one we use an object to specify it.
+
+                  sounds.add(new Sound("Olamide ft. Don Jazzy", "Skelemba", R.raw.ola_don, R.drawable.music_icon));
+                  sounds.add(new Sound("Fonsi", "Despacito", R.raw.luis, R.drawable.music_icon));
+              }
+              return sounds;
+
+          }
 }
