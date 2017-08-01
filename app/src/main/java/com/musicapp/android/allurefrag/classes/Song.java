@@ -1,17 +1,14 @@
 package com.musicapp.android.allurefrag.classes;
 
 
-import android.widget.ImageView;
-
 public class Song {
 
-    private String songTitle, songArtist;
-    private int imageResourceId;
+    private String songTitle, songArtist, songName;
 
-    public Song(String songTitle, String songArtist, int imageResourceId) {
+    public Song(String songTitle, String songArtist, String songName) {
         this.songTitle = songTitle;
         this.songArtist = songArtist;
-        this.imageResourceId = imageResourceId;
+        this.songName = songName;
     }
 
     public String getSongTitle() {
@@ -22,7 +19,7 @@ public class Song {
         return songArtist;
     }
 
-    public int getImageResourceId() {
-        return imageResourceId;
+    public String getSongName() {
+        return songName;
     }
 }
