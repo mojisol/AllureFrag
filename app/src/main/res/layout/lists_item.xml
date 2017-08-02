@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
     android:background="@color/tan_background"
-    android:orientation="horizontal">
-
-    <ImageView
-        android:id="@+id/music_imageview"
-        android:layout_width="@dimen/list_item_height"
-        android:layout_height="@dimen/list_item_height"
-        android:minHeight="@dimen/list_item_height"
-        android:background="@color/tan_background"
-        android:onClick="play"
-        android:src="@drawable/music_icon" />
+    android:orientation="horizontal"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="0dp"
+    card_view:contentPadding="10dp">
 
     <LinearLayout
-        android:id="@+id/text_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="16dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/songtitle_textview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            tools:text="Song Title" />
+        <ImageView
+            android:id="@+id/music_image_view"
+            android:layout_width="@dimen/list_item_height"
+            android:layout_height="@dimen/list_item_height"
+            android:minHeight="@dimen/list_item_height"
+            android:background="@color/tan_background"
+            android:src="@drawable/music_icon" />
 
-        <TextView
-            android:id="@+id/songartist_textview"
+        <LinearLayout
+            android:id="@+id/text_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white"
-            android:gravity="top"
-            tools:text="Song Artist" />
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/song_title_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                tools:text="Song Title" />
+
+            <TextView
+                android:id="@+id/song_artist_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:gravity="top"
+                tools:text="Song Artist" />
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</android.support.v7.widget.CardView>
