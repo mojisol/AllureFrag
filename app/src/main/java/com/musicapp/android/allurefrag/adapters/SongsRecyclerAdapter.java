@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.musicapp.android.allurefrag.R;
 import com.musicapp.android.allurefrag.classes.Song;
-
 import java.util.ArrayList;
 
 public class SongsRecyclerAdapter extends RecyclerView.Adapter<SongsRecyclerAdapter.Holder> {
@@ -28,7 +26,7 @@ public class SongsRecyclerAdapter extends RecyclerView.Adapter<SongsRecyclerAdap
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         CardView cardView = (CardView) LayoutInflater.from(context)
-                .inflate(R.layout.list_item, parent, false);
+                .inflate(R.layout.lists_item, parent, false);
         return new Holder(cardView);
     }
 
@@ -37,6 +35,7 @@ public class SongsRecyclerAdapter extends RecyclerView.Adapter<SongsRecyclerAdap
         Song currentSong = songs.get(position);
         holder.songArtist.setText(currentSong.getSongArtist());
         holder.songTitle.setText(currentSong.getSongTitle());
+        holder.imageView.setImageResource(currentSong.getImageResourceId());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +48,7 @@ public class SongsRecyclerAdapter extends RecyclerView.Adapter<SongsRecyclerAdap
 
     @Override
     public int getItemCount() {
+
         return songs.size();
     }
 

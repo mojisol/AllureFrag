@@ -46,6 +46,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
+
         return this.tabCount;
     }
 }
