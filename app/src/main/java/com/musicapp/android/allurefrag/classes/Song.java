@@ -1,7 +1,7 @@
 package com.musicapp.android.allurefrag.classes;
 
 
-public class Song {
+public class Song{
 
     private String songTitle, songArtist, songName;
 
@@ -21,5 +21,10 @@ public class Song {
 
     public String getSongName() {
         return songName;
+    }
+
+    @Override
+    public String toString() {
+        return songTitle;
     }
 }
