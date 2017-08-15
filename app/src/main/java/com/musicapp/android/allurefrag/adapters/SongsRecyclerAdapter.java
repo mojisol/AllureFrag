@@ -35,7 +35,6 @@ public class SongsRecyclerAdapter extends RecyclerView.Adapter<SongsRecyclerAdap
         Song currentSong = songs.get(position);
         holder.songArtist.setText(currentSong.getSongArtist());
         holder.songTitle.setText(currentSong.getSongTitle());
-        holder.imageView.setImageResource(currentSong.getImageResourceId());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

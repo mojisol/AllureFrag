@@ -2,16 +2,11 @@ package com.musicapp.android.allurefrag.classes;
 
 
 public class Song {
-
-    private int audioResourceId;
-    private int imageResourceId;
     private String songTitle, songArtist, songName;
 
-    public Song(String songTitle, String songArtist, int imageResourceId, int audioResourceId,  String songName) {
+    public Song(String songTitle, String songArtist, String songName) {
         this.songTitle = songTitle;
         this.songArtist = songArtist;
-        this.imageResourceId = imageResourceId;
-        this.audioResourceId = audioResourceId;
         this.songName = songName;
     }
 
@@ -27,11 +22,5 @@ public class Song {
         return songName;
     }
 
-    public int getAudioResourceId() {
-        return audioResourceId;
     }
 
-    public int getImageResourceId() {
-        return imageResourceId;
-    }
-}

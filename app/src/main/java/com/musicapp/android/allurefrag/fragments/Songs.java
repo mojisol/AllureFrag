@@ -1,9 +1,13 @@
 package com.musicapp.android.allurefrag.fragments;
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.PermissionChecker;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -54,6 +58,7 @@ public class Songs extends Fragment implements LoaderManager.LoaderCallbacks<Cur
         recyclerView.setAdapter(adapter);
 
         ArrayList<Song> songs = new ArrayList<>();
+        songs.add(new Song("Migos","Bad and Boujee","Rap"));
         SongsRecyclerAdapter adapter = new SongsRecyclerAdapter(getActivity(), songs);
         recyclerView.setAdapter(adapter);
 
@@ -61,6 +66,28 @@ public class Songs extends Fragment implements LoaderManager.LoaderCallbacks<Cur
         recyclerView.setLayoutManager(llm);
 
         return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (PermissionChecker.checkSelfPermission(getActivity(),Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (shouldShowRequestPermissionRationale(
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                // Explain to the user why we need to read the contacts
+            }
+
+            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+
+            // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+            // app-defined int constant that should be quite unique
+
+            return;
+        }
+
     }
 
     @Override
@@ -83,8 +110,6 @@ public class Songs extends Fragment implements LoaderManager.LoaderCallbacks<Cur
                     Song newSong = new Song(
                             data.getString(data.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)),
                             data.getString(data.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)),
-                            data.getInt(data.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)),
-                            data.getInt(data.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)),
                             data.getString(data.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)));
                     songs.add(newSong);
                     adapter.notifyDataSetChanged();
