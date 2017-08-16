@@ -98,7 +98,6 @@ public class Songs extends Fragment implements LoaderManager.LoaderCallbacks<Arr
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Song>> loader, ArrayList<Song> data) {
-
         relativeLayout.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
 
